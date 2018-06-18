@@ -33,4 +33,12 @@ public interface SpanContext {
      * @see Span#getBaggageItem(String)
      */
     Iterable<Map.Entry<String, String>> baggageItems();
+
+    /**
+     * Unwraps the actual implementation.
+     *
+     * @param <T> the implementation's type as an implementation of SpanContext
+     * @return  a cast of this SpanContext instance into T
+     */
+    <T extends SpanContext> T unwrap(Class<T> c);
 }

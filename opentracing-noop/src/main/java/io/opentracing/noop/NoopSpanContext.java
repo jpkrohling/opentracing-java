@@ -31,6 +31,12 @@ final class NoopSpanContextImpl implements NoopSpanContext {
     }
 
     @Override
+    public <T extends SpanContext> T unwrap() {
+        //noinspection unchecked
+        return (T) this;
+    }
+
+    @Override
     public String toString() { return NoopSpanContext.class.getSimpleName(); }
 
 }

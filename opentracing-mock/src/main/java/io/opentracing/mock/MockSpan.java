@@ -218,6 +218,12 @@ public final class MockSpan implements Span {
         public Iterable<Map.Entry<String, String>> baggageItems() {
             return baggage.entrySet();
         }
+
+        @Override
+        public <T extends SpanContext> T unwrap() {
+            //noinspection unchecked
+            return (T) this;
+        }
     }
 
     public static final class LogEntry {

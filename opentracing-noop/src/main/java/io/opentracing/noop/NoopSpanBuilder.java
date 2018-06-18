@@ -86,5 +86,11 @@ final class NoopSpanBuilderImpl implements NoopSpanBuilder {
     }
 
     @Override
+    public <T extends SpanContext> T unwrap() {
+        //noinspection unchecked
+        return (T) this;
+    }
+
+    @Override
     public String toString() { return NoopSpanBuilder.class.getSimpleName(); }
 }
